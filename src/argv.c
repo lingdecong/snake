@@ -7,6 +7,8 @@
 
 #include "argv.h"
 
+#define VERSION "v0.1"
+
 void handle_argv(int argc, char *argv[])
 {
 	int opt;
@@ -19,8 +21,10 @@ void handle_argv(int argc, char *argv[])
 	{
 		switch(opt) {
 			case 'v':
+				print_version();
 				break;
 			case 'h':
+				print_help();
 				break;
 			case ':':
 				break;
@@ -32,4 +36,14 @@ void handle_argv(int argc, char *argv[])
 	
 	for(;optind < argc; optind++);
 	
+}
+
+void print_version()
+{
+	printf("snake "VERSION" by lingdecong\n");
+}
+
+void print_help()
+{
+	printf("The game is building!\n");
 }
